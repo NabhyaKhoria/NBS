@@ -1,0 +1,110 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBS</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+    .carousel-inner img{
+        width: 100%;
+        height: 80vh;
+    }
+    .carousel-indicators li{
+        width: 20px;
+        height: 1.5px;
+        
+        border: 1px solid rgba(0,0,0,0.5);
+    }
+    .fa{
+        color:black;
+    }
+</style>
+    
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+<div class="container-fluid" id="navb">
+    <a class="navbar-brand" href="index.html"><img src="{% static 'logo-nav.jpg' %}" style="height:45px"></a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbardrop"><span class="navbar-toggler-icon"></span></button>    
+<div class="collapse navbar-collapse" id="navbardrop">
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item active"><a class="nav-link" href="hello">Welcome {% if user.is_authenticated %}   {{user.first_name}}</a></li> {% endif %}
+      <li class="nav-iteme"><a class="nav-link" href="hello">Home</a></li>
+      <li class="nav-item active"><a class="nav-link" href="buy">Buy</a></li>
+      <li class="nav-item"><a class="nav-link" href="sell">Sell</a></li>
+      <li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
+    </ul>
+</div>
+</div>
+</nav>
+
+{% for item in items %}
+<div class="container-fluid my-5" style="margin-bottom: 5px;">
+<div class="row welcme" ><div class="col-md-2 col-sm-0"></div>
+  <div class="col-md-8 col-sm-12">
+    <div class="card"><div class="row"><div class="col-5">
+        <img src="{{item.img.url}}" style="width:100%; height:100%;"></div>
+        <div class="col-7">
+<h2 style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; padding-top:10px; margin-bottom:0px;" >{{item.name}}</h2>
+<h5 style="padding-top:-3px; opacity:0.5; font-family:Arial, Helvetica, sans-serif;">{{item.category}}</h5>
+<p class="lead">{{item.description}}</p>
+<h2 style="font-weight: lighter;">₹{{item.price}}</h2><a href="#" data-toggle="tooltip" data-placement="right" title="Quality is assured!">
+<button class="text-light bg-dark my-2 px-3 py-1 btn-dark btn">Buy Now</button></a>
+</div>
+            </div></div>
+    </div></div>
+ </div>
+{% endfor %}
+
+        
+
+<footer>
+<div class="container-fluid padding">
+<div class="row text-center">
+  <div class="col-md-4">
+    <img src="{% static 'logo3.jpg' %}">
+    <hr class="light">
+    <p>98320-00000</p>
+    <p>nbscare@nbs.com</p>
+    <p>NBS Office, Siliguri</p>
+    <p>West Bengal, 734005</p>
+  </div>
+  <div class="col-md-4">
+    </div>
+  <div class="col-md-4">
+    <hr class="light">
+    <h5 class="footer-h">Quick Links</h5>
+    <hr class="light">
+    <a href="#" class="footerlink" style="list-style-type: none; color: #d5d5d5;">Home</a>
+    <a href="#" class="footerlink" style="list-style-type: none; color: #d5d5d5;">Buy</a>
+    <a href="#" class="footerlink" style="list-style-type: none; color: #d5d5d5;">Sell</a>
+    <a href="#" class="footerlink" style="list-style-type: none; color: #d5d5d5;">Logout</a>  
+    </div>
+    <div class="col-12">
+      <hr class="light">
+      <h5>&copy; NBS.com</h5>
+
+    </div>
+
+</div></div>
+</footer>
+
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
+    
+</body>
+</html>

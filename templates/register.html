@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBS</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+    .carousel-inner img{
+        width: 100%;
+        height: 80vh;
+    }
+    .carousel-indicators li{
+        width: 20px;
+        height: 1.5px;
+        
+        border: 1px solid rgba(0,0,0,0.5);
+    }
+    .fa{
+        color:black;
+    }
+    .front{
+        height: 100vh;
+    }
+    .logintag{
+        font-size:20px;
+    }
+</style>
+    
+</head>
+<body>
+<div class="front">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+<div class="container-fluid" id="navb">
+    <a class="navbar-brand" href="index.html"><img src="{% static 'logo-nav.jpg' %}" style="height:45px"></a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbardrop"><span class="navbar-toggler-icon"></span></button>    
+<div class="collapse navbar-collapse" id="navbardrop">
+    <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+        <li class="nav-item active"><a class="nav-link" href="register">Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+    </ul>
+</div>
+</div>
+</nav>
+<div class="container-fluid logintag">
+<div class="row welcome text-center  align-self-center align-items-center"><div class="col-2"></div>
+  <div class="col-8 justify-content-center">
+    <h1 class="display-4">Register</h1>
+    <hr class="dark">
+  </div><div class="col-2"></div>
+
+  <div class="col-8 justify-content-center text-left mx-auto my-2 p-3">
+      
+    <form method="POST" action="register">
+        {% csrf_token %}
+        <div class="form-group p-3 my-2">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter Full Name" class="form-control" required>
+        </div>
+        <div class="form-group p-3 my-2">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" class="form-control" required>
+        </div>
+        <div class="form-group p-3 my-2">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" class="form-control" required>
+        </div>
+
+        
+        <button type="submit" class="btn btn-dark py-2 px-4 my-4 mx-3" onhover="style='opacity:0.5;'">Register</button>
+    </form>
+  </div>
+</div>
+</div></div>
+
+<footer>
+    <div class="container-fluid padding">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <img src="{% static 'logo3.jpg' %}">
+        <hr class="light">
+        <p>98320-00000</p>
+        <p>nbscare@nbs.com</p>
+        <p>NBS Office, Siliguri</p>
+        <p>West Bengal, 734005</p>
+      </div>
+      <div class="col-md-4">
+        </div>
+      <div class="col-md-4">
+        <hr class="light">
+        <h5 class="footer-h">Quick Links</h5>
+        <hr class="light">
+        <a href="home.html" class="footerlink" style="list-style-type: none; color: #d5d5d5;">Home</a>
+        <a href="login.html" class="footerlink" style="list-style-type: none; color: #d5d5d5;">Login</a>
+        <a href="register.html" class="footerlink" style="list-style-type: none; color: #d5d5d5;">Register</a>
+        <a href="#" class="footerlink" style="list-style-type: none; color: #d5d5d5;">Contact Us</a>  
+        </div>
+        <div class="col-12">
+          <hr class="light">
+          <h5>&copy; NBS.com</h5>
+    
+        </div>
+    
+    </div></div>
+    </footer>
+
+</body>
+</html>
